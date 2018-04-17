@@ -1,2 +1,2 @@
 # lookfor
-Now you can `lookfor chrom in ps -A`!
+Now you can `lookfor chrome in ps -A`!
