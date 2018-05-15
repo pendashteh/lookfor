@@ -14,7 +14,12 @@ lookup_option=$2 # 'in' for now
 
 lookup_command=${@:3}
 
-echo 'Looking for '$lookup_text' in '$lookup_command
 
-$lookup_command | grep -i $lookup_text
+if [[ -e "$lookup_command" ]]; then
+  echo 'Looking for '$lookup_text' in file/folder: '$lookup_command
+  grep -nHR $lookup_text $lookup_command
+else
+  echo 'Looking for '$lookup_text' in the output of '$lookup_command
+  $lookup_command | grep -i $lookup_text
+fi
 
